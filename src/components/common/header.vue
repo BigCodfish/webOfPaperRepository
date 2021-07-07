@@ -12,7 +12,7 @@
         <i class="el-icon-menu" @click="toggle()"></i>
         <!-- 右上角用户信息 -->
         <div class="user">
-          <span>{{user.userName}}</span>
+          <span class="userName">{{user.userName}}</span>
           <img src="@/assets/img/userimg.png" class="user-img" ref="img" @click="showSetting()" />
           <transition name="fade">
             <div class="out" ref="out" v-show="login_flag">
@@ -84,6 +84,10 @@ export default {
   opacity: 0;
 }
 
+.userName{
+  margin-top: 22px;
+}
+
 #topbar {
   position: relative;
   /*z-index: 10;*/
@@ -124,6 +128,10 @@ export default {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  margin-left: 12px;
+  margin-top: 2px;
+  cursor: pointer;
+  position: center;
 }
 .topbar-right .el-icon-menu {
   font-size: 30px;
@@ -133,19 +141,14 @@ export default {
 }
 .topbar-right .user {
   position: relative;
-  margin-top: 22px;
+  /*margin-top: 22px;*/
   margin-right: 40px;
   display: flex;
-}
-.topbar-right .user .user-img {
-
-  margin-left: 10px;
-  cursor: pointer;
 }
 .user .out {
   font-size: 14px;
   position: absolute;
-  top: 80px;
+  top: 60px;
   right: 0px;
   background-color: #fff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

@@ -8,7 +8,7 @@
         <ul>
           <li>
             <span>题目类型:</span>
-            <el-select v-model="optionValue" placeholder="请选择题型" class="w150">
+            <el-select v-model="optionValue" placeholder="请选择题型">
               <el-option
                 v-for="item in options"
                 :key="item.value"
@@ -90,7 +90,7 @@
           </li>
         </ul>
         <!-- 选择题部分 -->
-        <div class="change" v-if="optionValue == '选择题'">
+        <div  class="change" v-if="optionValue == '选择题'">
           <div class="title">
             <el-tag>题目:</el-tag><span>在下面的输入框中输入题目,形如--DNS 服务器和DHCP服务器的作用是（）</span>
             <el-input
@@ -99,7 +99,8 @@
               v-model="postChange.question"
               placeholder="请输入题目内容"
               resize="none"
-              class="answer">
+              class="answer"
+            >
             </el-input>
           </div>
           <div class="options">
@@ -514,6 +515,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.select{
+  box-shadow: #2f6c9f;
+}
 .add {
   margin: 0px 40px;
   .box {
