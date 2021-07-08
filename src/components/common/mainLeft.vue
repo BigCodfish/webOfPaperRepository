@@ -12,6 +12,7 @@
       background-color="#001529"
       menu-trigger="click" router>
       <el-submenu v-for="(item,index) in this.myMenu" :index='item.index' :key="index">
+
         <!-- 单独加载左边框 -->
         <template slot="title">
           <div class="left-width">
@@ -19,11 +20,13 @@
             <span slot="title" class="title">{{item.title}}</span>
           </div>
         </template>
+
         <el-menu-item-group class="menuItemGroup" v-for="(list,index1) in item.content" :key="index1">
           <el-menu-item class="menuItem" @click="handleTitle(item.index)" :index="list.path" v-if="list.item1 != null">{{list.item1}}</el-menu-item>
           <el-menu-item class="menuItem" @click="handleTitle(item.index)" :index="list.path" v-if="list.item2 != null">{{list.item2}}</el-menu-item>
           <el-menu-item class="menuItem" @click="handleTitle(item.index)" :index="list.path" v-if="list.item3 != null">{{list.item3}}</el-menu-item>
         </el-menu-item-group>
+
       </el-submenu>
     </el-menu>
   </div>
@@ -42,7 +45,7 @@ export default {
   created() {
     this.changeMenu()
   },
-  computed: mapState(["flag","menu","adminMenu"]),
+  computed: mapState(["flag","teacherMenu","adminMenu"]),
   methods: {
     handleOpen(key, keyPath) {
       // console.log(key, keyPath);
@@ -60,7 +63,7 @@ export default {
         this.myMenu=this.adminMenu
       }
       else{
-        this.myMenu = this.menu
+        this.myMenu = this.teacherMenu
       }
     }
   },
