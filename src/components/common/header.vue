@@ -1,25 +1,20 @@
-<!-- 顶部信息栏 -->
 <template>
   <header id="topbar">
     <el-row>
-      <!-- 左边上角标题和图标 -->
       <el-col :span="4" class="topbar-left">
         <i class="iconfont icon-kaoshi"></i>
-        <span class="title" @click="index()">Paper Repository</span>
+        <span class="title">管理界面</span>
       </el-col>
+
       <el-col :span="20" class="topbar-right">
-        <!-- 导航收缩按钮 -->
         <i class="el-icon-menu" @click="toggle()"></i>
-        <!-- 右上角用户信息 -->
+
         <div class="user">
-          <span class="userName">{{user.userName}}</span>
-          <img src="@/assets/img/userimg.png" class="user-img" ref="img" @click="showSetting()" />
+          <span class="userName">{{ user.userName }}</span>
+          <img src="@/assets/img/userimg.png" class="user-img" ref="img" @click="showSetting()" alt="avatar"/>
           <transition name="fade">
-            <div class="out" ref="out" v-show="login_flag">
-              <ul>
-                <li><a href="javascript:;">设置</a></li>
-                <li class="exit" @click="exit()"><a href="javascript:;">退出登录</a></li>
-              </ul>
+            <div class="out" ref="out" v-show="login_flag" id="fade">
+              <span class="exit" @click="exit()">退出</span>
             </div>
           </transition>
         </div>
@@ -30,27 +25,26 @@
 
 <script>
 import store from '@/vuex/store'
-import {mapState,mapMutations} from 'vuex'
+import {mapState, mapMutations} from 'vuex'
+
 export default {
   data() {
     return {
       login_flag: false,
-      user: { //用户信息
-        userName: null,
-        userId: null
+      user: {
+        userName: '',
+        userId: '',
       }
     }
   },
   created() {
     this.getUserInfo()
   },
-  computed: mapState(["flag","menu"]),
+  computed: mapState(["flag"]),
   methods: {
-    //显示、隐藏退出按钮
     showSetting() {
       this.login_flag = !this.login_flag
     },
-    //左侧栏放大缩小
     ...mapMutations(["toggle"]),
     getUserInfo() { //获取用户信息
       let userName = this.$cookies.get("cname")
@@ -58,18 +52,15 @@ export default {
       this.user.userName = userName
       this.user.userId = userId
     },
-    index() {
-      this.$router.push({path: '/index'})
-    },
     exit() {
       let role = this.$cookies.get("role")
-      this.$router.push({path:"/"}) //跳转到登录页面
+      this.$router.push({path: "/"}) //跳转到登录页面
       this.$cookies.remove("cname") //清除cookie
       this.$cookies.remove("cid")
       this.$cookies.remove("role")
-      if(role == 0) {
+      /*if (role == 0) {
         this.menu.pop()
-      }
+      }*/
     }
   },
   store
@@ -80,11 +71,13 @@ export default {
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+{
   opacity: 0;
 }
 
-.userName{
+.userName {
   margin-top: 22px;
 }
 
@@ -97,6 +90,7 @@ export default {
   color: #726f70;
   box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.5);
 }
+
 #topbar .topbar-left {
   margin-top: 0px;
   display: flex;
@@ -104,12 +98,14 @@ export default {
   /*background: rgba(0, 0, 0, 0.05);*/
   overflow: hidden;
 }
+
 .topbar-left .icon-kaoshi {
   margin-top: 8px;
   font-size: 50px;
   font-weight: bold;
   color: #2f6c9f;
 }
+
 .topbar-left .title {
   font-size: 20px;
   cursor: pointer;
@@ -119,11 +115,13 @@ export default {
   font-weight: bold;
   color: #2f6c9f;
 }
+
 .topbar-right {
   display: flex;
   justify-content: space-between;
   /*align-items: center;*/
 }
+
 .topbar-right .user-img {
   width: 50px;
   height: 50px;
@@ -133,18 +131,21 @@ export default {
   cursor: pointer;
   position: center;
 }
+
 .topbar-right .el-icon-menu {
   font-size: 30px;
   margin-left: 10px;
   margin-top: 19px;
   color: #2f6c9f;
 }
+
 .topbar-right .user {
   position: relative;
   /*margin-top: 22px;*/
   margin-right: 40px;
   display: flex;
 }
+
 .user .out {
   font-size: 14px;
   position: absolute;
@@ -154,20 +155,28 @@ export default {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 12px;
 }
+
 .user .out ul {
   list-style: none;
 }
+
 .user .out ul > li {
   height: 26px;
   line-height: 26px;
 }
+
 .out a {
   text-decoration: none;
   color: #000;
 }
+
 .out .exit {
   margin-top: 4px;
   padding-top: 4px;
   border-top: 1px solid #ccc;
+}
+
+#fade{
+  z-index: 999;
 }
 </style>

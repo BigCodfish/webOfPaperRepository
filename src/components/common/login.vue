@@ -8,7 +8,7 @@
       <el-col :span="10" :offset="1">
         <div class="top">
           <i class="iconfont icon-kaoshi"></i>
-          <span class="title">在线考试系统</span>
+          <span class="title">试题系统</span>
         </div>
       </el-col>
     </el-row>

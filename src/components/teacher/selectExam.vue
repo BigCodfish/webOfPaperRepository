@@ -1,6 +1,7 @@
 //查询所有考试
 <template>
   <div class="exam">
+
     <el-table :data="pagination.records" border>
       <el-table-column fixed="left" prop="source" label="试卷名称" width="180"></el-table-column>
       <el-table-column prop="description" label="介绍" width="200"></el-table-column>
@@ -19,6 +20,7 @@
         </template>
       </el-table-column>
     </el-table>
+
     <el-pagination
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"

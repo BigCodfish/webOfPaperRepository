@@ -10,7 +10,7 @@ const state = {
   // 一个item为一个导航, content中为子导航
   teacherMenu: [
     {
-      index: '1',
+      index: '0',
       title: '考试管理',
       icon: 'icon-kechengbiao',
       content: [
@@ -27,7 +27,7 @@ const state = {
       ],
     },
     {
-      index: '2',
+      index: '1',
       title: '题库管理',
       icon: 'icon-tiku',
       content: [
@@ -50,13 +50,13 @@ const state = {
 
   adminMenu: [
     {
-      index: '1',
+      index: '0',
       title: '学生管理',
       icon: 'icon-role',
       content: [{item1: '学生管理', path: '/studentManage'}, {item2: '添加学生', path: '/addStudent'}],
     },
     {
-      index: '2',
+      index: '1',
       title: '教师管理',
       icon: 'icon-Userselect',
       content: [{item1: '教师管理', path: '/teacherManage'}, {item2: '添加教师', path: '/addTeacher'}],

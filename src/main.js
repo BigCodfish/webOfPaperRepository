@@ -6,13 +6,10 @@ import router from './router'
 import echarts from 'echarts'
 import axios from 'axios'
 import ElementUI from 'element-ui'
-// 更换为自定义主题
-// import './assets/element-plus-#0C63BD/index.css'
 import VueCookies from 'vue-cookies'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI)
 Vue.use(VueCookies)
-// Vue.use(ElementStyle)
 
 Vue.config.productionTip = false
 Vue.prototype.bus = new Vue()
