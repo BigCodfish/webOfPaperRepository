@@ -7,8 +7,8 @@
     <el-row>
       <el-col :span="10" :offset="1">
         <div class="top">
-          <i class="iconfont icon-kaoshi"></i>
-          <span class="title">试题系统</span>
+          <i class="iconfont el-icon-notebook-2"></i>
+          <span class="title">Paper Repository</span>
         </div>
       </el-col>
     </el-row>
@@ -31,6 +31,12 @@
       </el-col>
     </el-row>
 
+    <el-row >
+      <el-col>
+        <span class="tip">面向学生,老师的试题库管理系统</span>
+        <p></p>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
@@ -114,6 +120,14 @@ a:link {
   color: #000;
   background-color: #fff;
 }
+
+.tip{
+  font-size: 28px;
+  color: #FFFFFF;
+  margin-left: 80px;
+  margin-bottom: 10px;
+}
+
 #login .bg {
   position: fixed;
   top: 0;
@@ -137,13 +151,15 @@ a:link {
   display: flex;
   justify-content: left;
 }
-#login .top .icon-kaoshi {
-  color: #1D63EF;
-  font-size: 80px;
+#login .top .el-icon-notebook-2 {
+  color: #FFFFFF;
+  margin-top: 5px;
+  font-size: 45px;
 }
 #login .top .title {
-  margin-top: 20px;
+  margin-top: 8px;
   color: #eeeeee;
+  margin-left: 5px;
 }
 
 .loginTitle {
@@ -157,6 +173,7 @@ a:link {
   width: 100%;
   margin: 40px 0px 10px 0px;
   padding: 15px 20px;
+
 }
 .bottom .submit {
   display: flex;
