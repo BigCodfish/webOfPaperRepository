@@ -10,6 +10,7 @@
       </div>
 
       <div class="main_wrapper">
+        <el-divider></el-divider>
         <router-view></router-view>
       </div>
 

@@ -4,7 +4,7 @@
     <el-row class="padding-50">
       <el-col :span="24">
         <ul class="list">
-          <li class="logo"><i class="iconfont icon-kaoshi"></i><span>Exam-Online</span></li>
+          <li class="logo"><i class="iconfont el-icon-notebook-2"></i><span>Paper Repository</span></li>
           <li><a href="javascript:;" @click="exam()">试卷库</a></li>
           <li><a href="javascript:;" @click="practice()">我的练习</a></li>
           <li><router-link to="/scoreTable">我的分数</router-link></li>
@@ -122,10 +122,15 @@ li {
 #student .list .logo {
   display: flex;
   font-weight: bold;
+  font-size: 20px;
   color: #2f6c9f;
+
 }
 #student .list .logo i {
-  font-size: 50px;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 40px;
+  margin-right: 10px;
 }
 .right .msg {
   text-align: center;

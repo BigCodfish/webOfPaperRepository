@@ -2,12 +2,12 @@
   <header id="topbar">
     <el-row>
       <el-col :span="4" class="topbar-left">
-        <i class="iconfont icon-kaoshi"></i>
+        <i class="iconfont el-icon-notebook-2"></i>
         <span class="title">管理界面</span>
       </el-col>
 
       <el-col :span="20" class="topbar-right">
-        <i class="el-icon-menu" @click="toggle()"></i>
+        <i class="el-icon-s-fold" @click="toggle()"></i>
 
         <div class="user">
           <span class="userName">{{ user.userName }}</span>
@@ -99,18 +99,18 @@ export default {
   overflow: hidden;
 }
 
-.topbar-left .icon-kaoshi {
-  margin-top: 8px;
-  font-size: 50px;
+.topbar-left .el-icon-notebook-2 {
+  margin-top: 12px;
+  font-size: 40px;
   font-weight: bold;
   color: #2f6c9f;
 }
 
 .topbar-left .title {
-  font-size: 20px;
+  font-size: 24px;
   cursor: pointer;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 15px;
   margin-left: 10px;
   font-weight: bold;
   color: #2f6c9f;
@@ -132,9 +132,9 @@ export default {
   position: center;
 }
 
-.topbar-right .el-icon-menu {
+.topbar-right .el-icon-s-fold {
   font-size: 30px;
-  margin-left: 10px;
+  margin-left: 0px;
   margin-top: 19px;
   color: #2f6c9f;
 }
