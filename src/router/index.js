@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 import admin from "../views/admin";
 import addStudent from "../components/admin/addStudent";
 import teacherManage from "../components/admin/teacherManage";
@@ -16,6 +17,12 @@ import addAnswer from "../components/teacher/addAnswer";
 import addAnswerChildren from "../components/teacher/addAnswerChildren";
 import student from "../views/student";
 import myExam from "../components/student/myExam";
+import startExam from "../components/student/startExam";
+import manager from "../components/student/manager";
+import examMsg from "../components/student/examMsg";
+import answerScore from "../components/student/answerScore";
+import scoreTable from "../components/student/scoreTable";
+import answer from "../components/student/answer";
 
 
 Vue.use(Router)
@@ -27,6 +34,7 @@ export default new Router({
       name: 'login',
       component: login,
     },
+
     {
       path: '/admin',
       component: admin,
@@ -49,18 +57,11 @@ export default new Router({
         }
       ]
     },
+
     {
       path: '/teacher',
       component: teacher,
       children: [
-        /*{
-          path: '/', //首页默认路由
-          component: hello
-        },*/
-        /*{
-          path: '/scorePart',
-          component: scorePart,
-        },*/
         {
           path: '/examDescription',
           component: examDescription,
@@ -91,6 +92,7 @@ export default new Router({
         },
       ]
     },
+
     {
       path: '/student',
       component: student,
@@ -99,14 +101,32 @@ export default new Router({
           path: "/",
           component: myExam,
         },
-        {path: '/startExam', component: () => import('@/components/student/startExam')},
-        {path: '/manager', component: () => import('@/components/student/manager')},
-        {path: '/examMsg', component: () => import('@/components/student/examMsg')},
-        // {path: '/message', component: () => import('@/components/student/message')},
-        {path: '/studentScore', component: () => import("@/components/student/answerScore")},
-        {path: '/scoreTable', component: () => import("@/components/student/scoreTable")}
+        {
+          path: '/startExam',
+          component: startExam,
+        },
+        {
+          path: '/manager',
+          component: manager,
+        },
+        {
+          path: '/examMsg',
+          component: examMsg,
+        },
+        {
+          path: '/studentScore',
+          component: answerScore,
+        },
+        {
+          path: '/scoreTable',
+          component: scoreTable,
+        }
       ]
     },
-    {path: '/answer', component: () => import('@/components/student/answer')}
+
+    {
+      path: '/answer',
+      component: answer,
+    }
   ]
 })

@@ -1,4 +1,3 @@
-//查询所有考试
 <template>
   <div class="exam">
 
@@ -14,7 +13,7 @@
       <el-table-column prop="type" label="试卷类型" width="120"></el-table-column>
       <el-table-column prop="tips" label="考生提示" width="400"></el-table-column>
       <el-table-column fixed="right" label="操作" width="150">
-        <template slot-scope="scope">
+        <template v-slot="scope">
           <el-button @click="edit(scope.row.examCode)" type="primary" size="small">编辑</el-button>
           <el-button @click="deleteRecord(scope.row.examCode)" type="danger" size="small">删除</el-button>
         </template>
@@ -30,7 +29,7 @@
       layout="total, sizes, prev, pager, next, jumper"
       :total="pagination.total" class="page">
     </el-pagination>
-    <!-- 编辑对话框-->
+
     <el-dialog
       title="编辑试卷信息"
       :visible.sync="dialogVisible"
@@ -55,7 +54,8 @@
           </el-form-item>
           <el-form-item label="考试日期">
             <el-col :span="11">
-              <el-date-picker type="date" placeholder="选择日期" v-model="form.examDate" style="width: 100%;"></el-date-picker>
+              <el-date-picker type="date" placeholder="选择日期" v-model="form.examDate"
+                              style="width: 100%;"></el-date-picker>
             </el-col>
           </el-form-item>
           <el-form-item label="持续时间">
@@ -84,11 +84,13 @@
 export default {
   data() {
     return {
-      form: {}, //保存点击以后当前试卷的信息
-      pagination: { //分页后的考试信息
-        current: 1, //当前页
-        total: null, //记录条数
-        size: 8 //每页条数
+      form: {
+
+      },
+      pagination: {
+        current: 1,
+        total: null,
+        size: 8
       },
       dialogVisible: false
     }
@@ -100,7 +102,7 @@ export default {
     edit(examCode) { //编辑试卷
       this.dialogVisible = true
       this.$axios(`/api/exam/${examCode}`).then(res => { //根据试卷id请求后台
-        if(res.data.code == 200) {
+        if (res.data.code == 200) {
           this.form = res.data.data
         }
       })
@@ -109,7 +111,8 @@ export default {
       this.$confirm('确认关闭？')
         .then(_ => {
           done();
-        }).catch(_ => {});
+        }).catch(_ => {
+      });
     },
     submit() { //提交修改后的试卷信息
       this.dialogVisible = false
@@ -120,7 +123,7 @@ export default {
           ...this.form
         }
       }).then(res => {
-        if(res.data.code == 200) {
+        if (res.data.code == 200) {
           this.$message({ //成功修改提示
             message: '更新成功',
             type: 'success'
@@ -130,11 +133,11 @@ export default {
       })
     },
     deleteRecord(examCode) {
-      this.$confirm("确定删除该记录吗,该操作不可逆！！！","删除提示",{
+      this.$confirm("确定删除该记录吗,该操作不可逆！！！", "删除提示", {
         confirmButtonText: '确定删除',
         cancelButtonText: '算了,留着',
         type: 'danger'
-      }).then(()=> { //确认删除
+      }).then(() => { //确认删除
         this.$axios({
           url: `/api/exam/${examCode}`,
           method: 'delete',
@@ -167,13 +170,15 @@ export default {
 <style lang="scss" scoped>
 .exam {
   padding: 0px 40px;
+
   .page {
     margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .edit{
+
+  .edit {
     margin-left: 20px;
   }
 }

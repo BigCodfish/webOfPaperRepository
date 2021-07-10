@@ -1,11 +1,13 @@
-// 点击试卷后的缩略信息
+
 <template>
   <div id="msg">
     <div class="title">
       <span>试卷列表</span>
       <span>/  {{examData.source}}</span>
     </div>
+
     <div class="wrapper">
+
       <ul class="top">
         <li class="example">{{examData.source}}</li>
         <li><i class="iconfont icon-pen-"></i></li>
@@ -17,26 +19,35 @@
           </div>
         </li>
       </ul>
+
       <ul class="bottom">
         <li>更新于{{examData.examDate}}</li>
         <li>来自 {{examData.institute}}</li>
         <li class="btn">{{examData.type}}</li>
         <li class="right"><el-button @click="toAnswer(examData.examCode)">开始答题</el-button></li>
       </ul>
+
       <ul class="info">
-        <li @click="dialogVisible = true"><a href="javascript:;"><i class="iconfont icon-info"></i>考生须知</a></li>
+        <li @click="dialogVisible = true">
+          <a><i class="iconfont icon-info"></i>考生须知</a>
+        </li>
       </ul>
+
     </div>
+
     <div class="content">
       <el-collapse v-model="activeName" >
+
         <el-collapse-item class="header" name="0">
+
           <template slot="title" class="stitle" >
             <div class="title">
               <span>{{examData.source}}</span><i class="header-icon el-icon-info"></i>
-              <span class="time">{{examData.totalScore}}分 / {{examData.totalTime}}分钟</span>
+              <span class="time">{{score[0]+score[1]+score[2]}}分 / {{examData.totalTime}}分钟</span>
               <el-button type="primary" size="small">点击查看试题详情</el-button>
             </div>
           </template>
+
           <el-collapse class="inner">
             <el-collapse-item>
               <template slot="title" name="1">
@@ -48,6 +59,7 @@
                 </ul>
               </div>
             </el-collapse-item>
+
             <el-collapse-item>
               <template slot="title" name="2">
                 <div class="titlei">填空题 (共{{topicCount[1]}}题  共计{{score[1]}}分)</div>
@@ -58,6 +70,7 @@
                 </ul>
               </div>
             </el-collapse-item>
+
             <el-collapse-item>
               <template slot="title" name="3">
                 <div class="titlei">判断题 (共{{topicCount[2]}}题 共计{{score[2]}}分)</div>
@@ -69,11 +82,13 @@
               </div>
             </el-collapse-item>
           </el-collapse>
+
         </el-collapse-item>
-        
+
       </el-collapse>
     </div>
-    <!--考生须知对话框-->
+
+
     <el-dialog
       title="考生须知"
       :visible.sync="dialogVisible"
@@ -83,6 +98,7 @@
         <el-button @click="dialogVisible = false">知道了</el-button>
       </span>
     </el-dialog>
+
   </div>
 </template>
 
@@ -201,7 +217,7 @@ export default {
   padding: 5px 10px;
   border: 1px solid #88949b;
   border-radius: 4px;
-} 
+}
 .wrapper .bottom {
   display: flex;
   margin-left: 20px;

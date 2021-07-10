@@ -64,17 +64,17 @@ export default {
   methods: {
     formatTime(date) { //日期格式化
       let year = date.getFullYear()
-      let month= date.getMonth()+ 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
-      let day=date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
-      let hours=date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
-      let minutes=date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
-      let seconds=date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+      let month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+      let day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+      let hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+      let minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+      let seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
       // 拼接
-      return year+"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds;
+      return year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
     },
     onSubmit() {
       let examDate = this.formatTime(this.form.examDate)
-      this.form.examDate = examDate.substr(0,10)
+      this.form.examDate = examDate.substr(0, 10)
       this.$axios(`/api/examManagePaperId`).then(res => {
         this.form.paperId = res.data.data.paperId + 1 //实现paperId自增1
         this.$axios({
@@ -84,7 +84,7 @@ export default {
             ...this.form
           }
         }).then(res => {
-          if(res.data.code == 200) {
+          if (res.data.code == 200) {
             this.$message({
               message: '数据添加成功',
               type: 'success'
@@ -97,7 +97,7 @@ export default {
     cancel() { //取消按钮
       this.form = {}
     },
-    
+
   }
 };
 </script>
