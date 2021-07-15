@@ -1,4 +1,3 @@
-//显示学生成绩
 <template>
   <div class="table">
     <p class="title">我的分数</p>
@@ -22,12 +21,12 @@
             <el-tag>{{scope.row.subject}}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column prop="etScore" label="考试分数" width="200"></el-table-column>
-        <el-table-column label="是否及格" width="100">
+        <el-table-column prop="score" label="考试分数" width="200"></el-table-column>
+<!--        <el-table-column label="是否及格" width="100">
           <template slot-scope="scope">
-            <el-tag :type="scope.row.etScore>= 60 ? 'success' : 'danger'">{{scope.row.etScore >= 60 ? "及格" : "不及格"}}</el-tag>
+            <el-tag :type="scope.row.score>= 60 ? 'success' : 'danger'">{{scope.row.score >= 60 ? "及格" : "不及格"}}</el-tag>
           </template>
-        </el-table-column>
+        </el-table-column>-->
       </el-table>
       <el-row type="flex" justify="center" align="middle" class="pagination">
         <el-pagination

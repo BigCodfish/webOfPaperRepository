@@ -13,7 +13,7 @@
       <el-table-column prop="type" label="试卷类型" width="120"></el-table-column>
       <el-table-column prop="tips" label="考生提示" width="400"></el-table-column>
       <el-table-column fixed="right" label="操作" width="150">
-        <template v-slot="scope">
+        <template slot-scope="scope">
           <el-button @click="edit(scope.row.examCode)" type="primary" size="small">编辑</el-button>
           <el-button @click="deleteRecord(scope.row.examCode)" type="danger" size="small">删除</el-button>
         </template>

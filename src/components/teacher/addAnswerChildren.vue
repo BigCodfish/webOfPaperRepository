@@ -385,7 +385,7 @@ export default {
           fillNumber: this.fillNumber,
           judgeNumber: this.judgeNumber,
           paperId: this.paperId,
-          subject: '计算机网络' //题目数量太少，指定为计算机网络出题
+          subject: this.subject,
         }
       }).then(res => {
         console.log(res)
@@ -431,7 +431,7 @@ export default {
           })
           this.postChange = {}
         }
-      }).then(() => {
+      })/*.then(() => {
         this.$axios(`/api/multiQuestionId`).then(res => { //获取当前题目的questionId
           let questionId = res.data.data.questionId
           this.postPaper.questionId = questionId
@@ -444,7 +444,7 @@ export default {
             }
           })
         })
-      })
+      })*/
     },
     fillSubmit() { //填空题提交
       this.postFill.subject = this.subject
@@ -463,7 +463,7 @@ export default {
           })
           this.postFill = {}
         }
-      }).then(() => {
+      })/*.then(() => {
         this.$axios(`/api/fillQuestionId`).then(res => { //获取当前题目的questionId
           let questionId = res.data.data.questionId
           this.postPaper.questionId = questionId
@@ -476,7 +476,7 @@ export default {
             }
           })
         })
-      })
+      })*/
     },
     judgeSubmit() { //判断题提交
       this.postJudge.subject = this.subject
@@ -495,7 +495,7 @@ export default {
           })
           this.postJudge = {}
         }
-      }).then(() => {
+      })/*.then(() => {
         this.$axios(`/api/judgeQuestionId`).then(res => { //获取当前题目的questionId
           let questionId = res.data.data.questionId
           this.postPaper.questionId = questionId
@@ -508,7 +508,7 @@ export default {
             }
           })
         })
-      })
+      })*/
     }
   },
 };

@@ -25,7 +25,6 @@
           <div class="info">
             <span>{{ item.examDate.substr(0, 10) }}</span>
             <i class="iconfont icon-icon-time"></i><span v-if="item.totalTime != null">限时{{ item.totalTime }}分钟</span>
-            <i class="iconfont icon-fenshu"></i><span>满分{{ item.totalScore }}分</span>
           </div>
         </li>
       </ul>
